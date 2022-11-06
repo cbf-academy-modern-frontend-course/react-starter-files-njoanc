@@ -1,0 +1,19 @@
+
+.headphone::after{
+    content: "";
+    display: inline-block;
+    height: 0.5em;
+    vertical-align: bottom;
+    width: 20%;
+    margin-left: 1px;
+    border-top: 1px solid rgb(183, 212, 18);  
+}
+
+.price{
+    color: brown;
+ 
+}
+
+.click{
+    background-color: blue;
+}
