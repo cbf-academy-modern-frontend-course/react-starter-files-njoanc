@@ -9,6 +9,7 @@ const GadgetList = (props) => {
         <div className="headphone" key={item.id}>
           <div>{item.title}</div>
           <div className="price">{item.price}</div>
+          <img src={item.src} alt={item.title} />
         </div>
       ))}
     </main>

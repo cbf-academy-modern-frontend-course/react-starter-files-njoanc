@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import Button from "./components/Button";
-import ClickCounter from "./components/ClickCounter";
-//import data from './models/headphones.json';
+// import Button from "./components/Button";
+// import ClickCounter from "./components/ClickCounter";
+import data from "./models/headphones.json";
 import "./index.css";
-// import GadgetList from "./components/GadgetList";
-// const mainStyle = { fontFamily: "Arial" };
+import GadgetList from "./components/GadgetList";
+const mainStyle = { fontFamily: "Arial" };
 
 const App = () => {
   // const headphones = [
@@ -17,40 +17,41 @@ const App = () => {
   // ];
   // const [headphonesList] = useState(headphones);
 
-  const [counter, setCounter] = useState(0);
+  const [headphonesList] = useState(data);
+  // const [counter, setCounter] = useState(0);
 
-  const handleClick = () => {
-    setCounter(counter + 1);
-  };
+  // const handleClick = () => {
+  //   setCounter(counter + 1);
+  // };
 
-  const handleUnclick = () => {
-    setCounter(counter - 1);
-  };
+  // const handleUnclick = () => {
+  //   setCounter(counter - 1);
+  // };
 
   return (
-    // <section style={mainStyle}>
-    //   <h1>Electronics Store</h1>
-    //   <GadgetList items={headphonesList} />
-    // </section>
+    <section style={mainStyle}>
+      <h1>Electronics Store</h1>
+      <GadgetList items={headphonesList} />
+    </section>
 
-    <div>
-      <ClickCounter counter={counter} />
-      <br />
+    //   <div>
+    //     <ClickCounter counter={counter} />
+    //     <br />
 
-      <Button
-        handleClick={handleClick}
-        text="Click"
-        style={{ backgroundColor: "green" }}
-      />
-      <br />
-      <br />
+    //     <Button
+    //       handleClick={handleClick}
+    //       text="Click"
+    //       style={{ backgroundColor: "green" }}
+    //     />
+    //     <br />
+    //     <br />
 
-      <Button
-        handleClick={handleUnclick}
-        text="Unclick"
-        style={{ backgroundColor: "brown" }}
-      />
-    </div>
+    //     <Button
+    //       handleClick={handleUnclick}
+    //       text="Unclick"
+    //       style={{ backgroundColor: "brown" }}
+    //     />
+    // </div>
   );
 };
 
