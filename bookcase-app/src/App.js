@@ -1,11 +1,14 @@
-import React from 'react';
-import Book from './components/Book';
-import data from './models/books.json';
+import React from "react";
+import BookList from "./components/BookList";
+import "./index.css";
 
-function App() {
-  const books = data;
-  return <Book/>;
-}
+const App = () => {
+  return (
+    <div>
+      <h1 className="title">Bookcase App</h1>
+      <BookList />
+    </div>
+  );
+};
 
 export default App;
-
