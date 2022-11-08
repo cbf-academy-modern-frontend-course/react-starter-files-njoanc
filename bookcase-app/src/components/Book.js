@@ -7,26 +7,30 @@ const Book = ({ book }) => {
       title,
       authors,
       imageLinks: { thumbnail },
+      description,
     },
   } = book;
 
   return (
     <div className="book">
-      <h2>{title}</h2>
+      <img src={thumbnail} alt={title} />
       <div>
-        <img src={thumbnail} alt={title} />
+        <h2>{title}</h2>
         <br />
         by{" "}
-        {authors.length ? (
+        {authors.length > 0 ? (
           authors.join(" and ")
         ) : (
           <p style={{ color: "red" }}> No authors Listed</p>
         )}
         {retailPrice ? (
-          <p>£{retailPrice.amount}</p>
+          <p>
+            <strong>£{retailPrice.amount}</strong>
+          </p>
         ) : (
           <p style={{ color: "red" }}>No price listed</p>
         )}
+        <p>{description.substring(0, 250)}...</p>
       </div>
     </div>
   );
@@ -37,7 +41,7 @@ Book.propTypes = {
     title: PropTypes.string.isRequired,
     authors: PropTypes.array.isRequired,
     imageLinks: PropTypes.string.isRequired,
-    // description: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
   }),
   saleInfo: PropTypes.shape({
     retailPrice: PropTypes.shape({
