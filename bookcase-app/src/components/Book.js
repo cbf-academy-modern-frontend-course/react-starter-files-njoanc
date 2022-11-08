@@ -11,6 +11,10 @@ const Book = ({ book }) => {
     },
   } = book;
 
+  const addBook = () => {
+    console.log(`The Book '${title}' was clicked`);
+  };
+
   return (
     <div className="book">
       <img src={thumbnail} alt={title} />
@@ -31,6 +35,7 @@ const Book = ({ book }) => {
           <p style={{ color: "red" }}>No price listed</p>
         )}
         <p>{description.substring(0, 250)}...</p>
+        <button onClick={addBook}>Add</button>
       </div>
     </div>
   );
