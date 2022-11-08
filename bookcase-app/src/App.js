@@ -4,7 +4,7 @@ import "./index.css";
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       <h1 className="title">Bookcase App</h1>
       <BookList />
     </div>
