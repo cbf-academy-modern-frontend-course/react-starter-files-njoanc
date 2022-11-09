@@ -13,6 +13,10 @@ const taskList = [
 ];
 
 function App() {
+  function toggleComplete(id) {
+    console.log(`Task with the id '${id}' was clicked`);
+  }
+
   return (
     <Fragment>
       <h1 key="heading">Task List</h1>
@@ -24,6 +28,7 @@ function App() {
               key={task.id}
               title={task.title}
               isComplete={task.isComplete}
+              toggleComplete={toggleComplete()}
             />
           ))}
       </TaskContainer>
