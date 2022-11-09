@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Button from "./Button";
 
-const Book = ({ book }) => {
+const Book = ({ book, addBook }) => {
   const {
     saleInfo: { retailPrice },
     volumeInfo: {
@@ -37,9 +37,9 @@ const Book = ({ book }) => {
         )}
         <p>{description.substring(0, 250)}...</p>
       </div>
-      <di>
+      <div>
         <Button handleClick={handleAddBook} text="+Add" />
-      </di>
+      </div>
     </div>
   );
 };
