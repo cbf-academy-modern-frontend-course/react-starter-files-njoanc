@@ -35,8 +35,12 @@ const Book = ({ book }) => {
           <p style={{ color: "red" }}>No price listed</p>
         )}
         <p>{description.substring(0, 250)}...</p>
-        <button onClick={addBook}>Add</button>
       </div>
+      <di>
+        <button className="button" onClick={addBook}>
+          Add+
+        </button>
+      </di>
     </div>
   );
 };

@@ -173,6 +173,11 @@ a{
   margin-right:5px;
 }
 
+.button{
+  background-color: rgb(43, 73, 240);
+  color: azure;
+}
+
 .basket,.pages {
   text-align: center;
 }
