@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const AboutUsPage = (props) => {
   return (
-    <div className="header">
+    <>
       <h1>About Us</h1>
       <div className="breadcrumb">
         <Link to="/">Home</Link>
@@ -14,7 +14,7 @@ const AboutUsPage = (props) => {
           collection of books. It connects to the Google Books API and...
         </p>
       </div>
-    </div>
+    </>
   );
 };
 
