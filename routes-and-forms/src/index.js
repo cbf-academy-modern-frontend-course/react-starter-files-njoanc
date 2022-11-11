@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Ducklings from "./components/Ducklings";
 import Puppies from "./components/Puppies";
+import AboutUsPage from "./components/AboutUsPage";
 
 export default function App() {
   return (
@@ -20,12 +21,16 @@ export default function App() {
         <li>
           <Link to="/ducklings"> Ducklings </Link>
         </li>
+        <li>
+          <Link to="/aboutUsPage"> About Us </Link>
+        </li>
       </ul>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="kittens" element={<Kittens />} />
         <Route path="/puppies" element={<Puppies />} />
         <Route path="/ducklings" element={<Ducklings />} />
+        <Route path="aboutUsPage" element={<AboutUsPage />} />
       </Routes>
     </Router>
   );
