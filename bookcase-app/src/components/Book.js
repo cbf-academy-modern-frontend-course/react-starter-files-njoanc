@@ -23,7 +23,7 @@ const Book = ({ book, addBook }) => {
         <h2>{title}</h2>
         <br />
         by{" "}
-        {authors.length > 0 ? (
+        {authors.length > 1 ? (
           authors.join(" and ")
         ) : (
           <p style={{ color: "red" }}> No authors Listed</p>

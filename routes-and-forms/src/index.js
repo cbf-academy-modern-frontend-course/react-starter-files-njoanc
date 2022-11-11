@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Ducklings from "./components/Ducklings";
 import Puppies from "./components/Puppies";
 import AboutUsPage from "./components/AboutUsPage";
+import PetForm from "./components/PetForm";
 
 export default function App() {
   return (
@@ -24,6 +25,9 @@ export default function App() {
         <li>
           <Link to="/aboutUsPage"> About Us </Link>
         </li>
+        <li>
+          <Link to="/register"> Save a new Pet </Link>
+        </li>
       </ul>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -31,6 +35,7 @@ export default function App() {
         <Route path="/puppies" element={<Puppies />} />
         <Route path="/ducklings" element={<Ducklings />} />
         <Route path="aboutUsPage" element={<AboutUsPage />} />
+        <Route path="register" element={<PetForm />} />
       </Routes>
     </Router>
   );
@@ -44,6 +49,7 @@ function Home() {
       <img src="imgs/kitten.jpg" alt="Kitten" />
       <img src="imgs/puppy.jpg" alt="Puppy" />
       <img src="imgs/duckling.jpg" alt="Duckling" />
+      <PetForm />
     </>
   );
 }
