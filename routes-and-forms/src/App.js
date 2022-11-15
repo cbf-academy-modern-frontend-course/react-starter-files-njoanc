@@ -14,11 +14,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="kittens" element={<Kittens />} />
+          <Route path="/kittens" element={<Kittens />} />
           <Route path="/puppies" element={<Puppies />} />
           <Route path="/ducklings" element={<Ducklings />} />
-          <Route path="aboutUsPage" element={<AboutUsPage />} />
-          <Route path="register" element={<PetForm />} />
+          <Route path="/aboutUsPage" element={<AboutUsPage />} />
+          <Route path="/register" element={<PetForm />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
