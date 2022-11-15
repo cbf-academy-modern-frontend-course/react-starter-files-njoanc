@@ -1,65 +1,70 @@
 import React, { useState } from "react";
 
 const PetForm = () => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [colors, setColors] = useState([]);
+  const [inputs, setInputs] = useState({});
   const [hasSubmitted, setSubmitted] = useState(false);
+
+  function handleChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
     setSubmitted(true);
   }
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-    setSubmitted(false);
-  };
-  const handleAgeChange = (event) => {
-    console.log(event.target.value);
-    setAge(event.target.value);
-    setSubmitted(false);
-  };
-
-  const handleColorsChange = (event) => {
-    console.log(event.target.value);
-    setColors(event.target.value);
-    setSubmitted(false);
-  };
-
   return (
     <div>
       <h2>Register Your Pet</h2>
       <h3>Please fill in your pet's details below</h3>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={handleSubmit}>
         <div>
           <label>
             Pet's Name:
-            <input type="text" value={name} onChange={handleNameChange} />
+            <input
+              type="text"
+              name="name"
+              value={inputs.name}
+              onChange={handleChange}
+            />
           </label>
           <br />
           <br />
           <label>
             Pet's Age:
-            <input type="text" value={age} onChange={handleAgeChange} />
+            <input
+              type="text"
+              name="age"
+              value={inputs.age}
+              onChange={handleChange}
+            />
           </label>
           <br />
           <br />
+
           <label>
             Pet's Colors:
-            <input type="text" value={colors} onChange={handleColorsChange} />
+            <input
+              type="text"
+              name="colors"
+              value={inputs.colors}
+              onChange={handleChange}
+            />
           </label>
+          <br />
+          <br />
         </div>
         <input type="submit" value="Submit" id="submit-button" />
       </form>
       {hasSubmitted === true && <p>Thank you for submitting</p>}
       <div id="results">
         <h3>Results</h3>
-        Name: {name}
+        Name: {inputs.name}
         <br />
-        Age: {age}
+        Age: {inputs.age}
         <br />
-        <p>Colors:{colors}</p>
+        Colors:{inputs.colors}
         <br />
       </div>
     </div>
