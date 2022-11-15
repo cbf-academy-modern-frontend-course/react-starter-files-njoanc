@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
 const PetForm = () => {
   const [inputs, setInputs] = useState({});
@@ -55,7 +56,11 @@ const PetForm = () => {
           <br />
           <br />
         </div>
-        <input type="submit" value="Submit" id="submit-button" />
+        {/* <input type="submit" value="Submit" id="submit-button" /> */}
+        <Button id="submit-button" type="submit" text="Submit" />
+        {/* <button id="submit-button" type="submit">
+          Submit
+        </button> */}
       </form>
       {hasSubmitted === true && <p>Thank you for submitting</p>}
       <div id="results">
