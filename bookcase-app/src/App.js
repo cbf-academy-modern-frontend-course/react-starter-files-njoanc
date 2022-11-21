@@ -13,28 +13,30 @@ function App() {
     console.log(`The Book ‘${title}’ was clicked`);
   }
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Header />}>
-          <Route index element={<Home />} />
-          <Route path="/about" element={<AboutUsPage />} />
-          <Route
-            path="/bookcase"
-            element={
-              <BookList>
-                {books.map((book) => (
-                  <Book
-                    key={book.id}
-                    book={book}
-                    addBook={() => addBook(book.volumeInfo.title)}
-                  />
-                ))}
-              </BookList>
-            }
-          />
-        </Route>
-      </Routes>
-    </Router>
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Header />}>
+            <Route index element={<Home />} />
+            <Route path="/about" element={<AboutUsPage />} />
+            <Route
+              path="/bookcase"
+              element={
+                <BookList>
+                  {books.map((book) => (
+                    <Book
+                      key={book.id}
+                      book={book}
+                      addBook={() => addBook(book.volumeInfo.title)}
+                    />
+                  ))}
+                </BookList>
+              }
+            />
+          </Route>
+        </Routes>
+      </Router>
+    </div>
   );
 }
 export default App;
