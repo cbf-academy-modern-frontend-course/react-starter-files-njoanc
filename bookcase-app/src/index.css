@@ -67,6 +67,7 @@ a{
 }
 .container{
   width:100%;
+  flex-direction: column;
 }
 .header h1, .header .breadcrumb{
   text-align: center;
@@ -174,8 +175,42 @@ a{
 }
 
 .button{
-  background-color: rgb(43, 73, 240);
+  background-color: rgb(68, 94, 244);
   color: azure;
+  padding: 4px 8px;
+  
+}
+
+.aboutPage{
+  flex-wrap: wrap;
+  background-color: rgb(218, 243, 235);
+  display: block;
+}
+
+.navigation{
+  background-color: rgb(234, 200, 88);
+  flex-direction:column;
+  align-items: flex-end;
+  /* gap: 10px; */
+  padding: 9px 15px 8px;
+  border-right: 1px solid #000;
+  column-gap: 50px;
+  
+}
+.link{
+  color: aqua;
+}
+
+.h1{
+  text-align: center;
+}
+.about{
+  text-align: center;
+}
+.home{
+  /* background-color: #919191; */
+  text-align: center;
+  margin-left: 20px;
 }
 
 .basket,.pages {

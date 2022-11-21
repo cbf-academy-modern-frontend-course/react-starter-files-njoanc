@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Button from "./Button";
+import "../index.css";
 
 const Book = ({ book, addBook }) => {
   const {
@@ -11,10 +11,6 @@ const Book = ({ book, addBook }) => {
       description,
     },
   } = book;
-
-  const handleAddBook = () => {
-    console.log(`The Book '${title}' was clicked`);
-  };
 
   return (
     <div className="book">
@@ -38,7 +34,9 @@ const Book = ({ book, addBook }) => {
         <p>{description.substring(0, 250)}...</p>
       </div>
       <div>
-        <Button handleClick={handleAddBook} text="+Add" />
+        <button className="button" onClick={addBook}>
+          Add +
+        </button>
       </div>
     </div>
   );
