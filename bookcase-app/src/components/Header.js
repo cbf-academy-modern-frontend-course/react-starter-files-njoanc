@@ -1,23 +1,27 @@
+import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import "../index.css";
-const Header = () => {
+const Header = (props) => {
   return (
-    <>
-      <h1 className="h1">My Bookcase</h1>
-      <nav>
-        <div className="navigation">
+    <div className="header">
+      <h1>My e-Book Library</h1>
+      <div className="breadcrumb">
+        <div className="link">
           <Link to="/">Home</Link>
-          <br />
+        </div>
+        {` | `}
+        <div className="link">
           <Link to="/about">About Us</Link>
-          <br />
+        </div>
+        {` | `}
+        <div className="link">
           <Link to="/bookcase" className="bookLink">
-            Bookcase
+            Bookcase({props.bookLength})
           </Link>
         </div>
-      </nav>
-
+      </div>
       <Outlet />
-    </>
+    </div>
   );
 };
 

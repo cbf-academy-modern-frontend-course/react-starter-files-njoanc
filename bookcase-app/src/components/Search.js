@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../index.css";
 
 const Search = (props) => {
   const [searchInput, setSearchInput] = useState("");
@@ -9,18 +10,20 @@ const Search = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="search">
       <p style={{ color: "red" }}>
         <em>{searchInput && "Keywords Typed:" + searchInput}</em>
       </p>
       <input
         type="text"
-        placeholder="Search for a book"
+        placeholder="Enter name, author, keyword or genre..."
         value={searchInput}
         onChange={handleSubmit}
       />
 
-      <button type="submit">Submit</button>
+      <button type="submit" className="find">
+        Find
+      </button>
     </form>
   );
 };

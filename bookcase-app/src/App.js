@@ -6,6 +6,7 @@ import data from "./models/books.json";
 import BookList from "./components/BookList";
 import AboutUsPage from "./pages/About";
 import Home from "./components/Home";
+import Search from "./components/Search";
 
 function App() {
   const [books] = useState(data);
@@ -23,6 +24,8 @@ function App() {
               path="/bookcase"
               element={
                 <BookList>
+                  <Home />
+                  <Search />
                   {books.map((book) => (
                     <Book
                       key={book.id}
