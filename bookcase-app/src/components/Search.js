@@ -1,31 +1,41 @@
-import React, { useState } from "react";
-import "../index.css";
+import React from "react";
 
-const Search = (props) => {
-  const [searchInput, setSearchInput] = useState("");
+const propTypes = {};
+const defaultProps = {};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSearchInput(e.target.value);
+const Search = ({ keyword, setKeyword, findBooks }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    findBooks(keyword);
+  };
+
+  const onChange = (event) => {
+    setKeyword(event.target.value);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="search">
-      <p style={{ color: "red" }}>
-        <em>{searchInput && "Keywords Typed:" + searchInput}</em>
-      </p>
-      <input
-        type="text"
-        placeholder="Enter name, author, keyword or genre..."
-        value={searchInput}
-        onChange={handleSubmit}
-      />
-
-      <button type="submit" className="find">
-        Find
-      </button>
-    </form>
+    <div className="searchBar">
+      <form onSubmit={handleSubmit}>
+        <p style={{ color: "red" }}>
+          <em>{keyword && "Keywords Typed:" + keyword}</em>
+        </p>
+        <label>
+          <input
+            type="text"
+            placeholder="Enter name, author, keyword or genre..."
+            name="search"
+            value={keyword}
+            onChange={onChange}
+          />
+        </label>
+        <button type="submit"> Find</button>
+      </form>
+    </div>
   );
 };
+
+//input validation
+Search.propTypes = propTypes;
+Search.defaultProps = defaultProps;
 
 export default Search;

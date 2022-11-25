@@ -1,66 +1,65 @@
+import React from "react";
 import PropTypes from "prop-types";
-import "../index.css";
 
-const Book = ({ book, addBook }) => {
+const Book = ({ book, ...props }) => {
+  //Nested Destructuring
   const {
+    id,
     saleInfo: { retailPrice },
-    volumeInfo: {
-      title,
-      authors,
-      imageLinks: { thumbnail },
-      description,
-    },
+    volumeInfo: { title, authors, description },
   } = book;
 
   return (
     <div className="book">
-      <img src={thumbnail} alt={title} />
-      <div>
-        <h2>{title}</h2>
-        <br />
-        by{" "}
-        {authors.length > 1 ? (
-          authors.join(" and ")
-        ) : (
-          <p style={{ color: "red" }}> No authors Listed</p>
-        )}
-        {retailPrice ? (
-          <p>
-            <strong>£{retailPrice.amount}</strong>
-          </p>
-        ) : (
-          <p style={{ color: "red" }}>No price listed</p>
-        )}
-        <p>{description.substring(0, 250)}...</p>
+      <img
+        src={
+          book.volumeInfo.imageLinks
+            ? book.volumeInfo.imageLinks.thumbnail
+            : "missing.png"
+        }
+        alt={title.length > 0 ? title : `Book id=${id}`}
+      />
+      <div className="text">
+        <h2 title={title}>
+          {title.length > 50 ? title.substring(0, 50) + "..." : title}
+        </h2>
+        <p className="author">
+          by {authors ? authors.join(" and ") : "No Authors Listed"}
+        </p>
+        <p className="price">
+          {retailPrice ? "£" + retailPrice.amount : "No Retail Price"}
+        </p>
+        <p className="description">
+          {description
+            ? description.substring(0, 200) + "..."
+            : "No description"}
+        </p>
       </div>
       <div>
-        <button className="button" onClick={addBook}>
-          Add +
-        </button>
+        {props.stored === "library" ? (
+          <button
+            className="add-button"
+            disabled={book.read}
+            onClick={() => props.addToBookcase(id)}
+          >
+            + Add
+          </button>
+        ) : (
+          <button
+            className="remove-button"
+            onClick={() => props.removeFromBookcase(id)}
+          >
+            Remove
+          </button>
+        )}
       </div>
     </div>
   );
 };
 
-Book.propTypes = {
-  volumeInfo: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    authors: PropTypes.array.isRequired,
-    imageLinks: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }),
-  saleInfo: PropTypes.shape({
-    retailPrice: PropTypes.shape({
-      amount: PropTypes.string.isRequired,
-    }),
-  }),
-};
-
-Book.defaultProps = {
-  saleInfo: {
-    retailPrice: {
-      amount: "No price provided",
-    },
-  },
-};
 export default Book;
+
+//Prop Types
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+};
