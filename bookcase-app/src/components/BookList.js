@@ -8,7 +8,7 @@ const BookList = ({ books, ...props }) => {
       <div>
         {props.stored === "library" && <h2>Suggested Reading</h2>}
         {books.length === 0 ? (
-          <div className="empty">No books...</div>
+          <div className="empty">No books found</div>
         ) : (
           books.map((book) => (
             <Book key={`${book.id}|${book.etag}`} book={book} {...props} />

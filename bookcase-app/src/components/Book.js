@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Book = ({ book, ...props }) => {
-  //Nested Destructuring
   const {
     id,
     saleInfo: { retailPrice },
@@ -15,7 +14,7 @@ const Book = ({ book, ...props }) => {
         src={
           book.volumeInfo.imageLinks
             ? book.volumeInfo.imageLinks.thumbnail
-            : "missing.png"
+            : "No picture listed"
         }
         alt={title.length > 0 ? title : `Book id=${id}`}
       />
@@ -59,7 +58,7 @@ const Book = ({ book, ...props }) => {
 
 export default Book;
 
-//Prop Types
+//Validation
 Book.propTypes = {
   book: PropTypes.object.isRequired,
 };
