@@ -1,31 +1,20 @@
-import "../index.css";
+import React from "react";
 import { Link } from "react-router-dom";
-const AboutUsPage = (props) => {
-  const color = {
-    color: "blue",
-  };
+
+const About = (props) => {
   return (
-    <div className="breadcrumb">
-      <h1 className="about">About</h1>
-      <div className="aboutPage">
-        <h2>Welcome to the Bookcase Application</h2>
-        <p>The following application was created by Jeanne d'Arc NYIRAMWIZA.</p>
-        <p>
-          This bookcase app displays a list of books that a user can save to a
-          local bookcase.
-        </p>
-        <p>
-          Click on the "Add+" button to add a book to your bookcase. Use the
-          serach bar to find the latest books by name, author,or description
-        </p>
-        <div className="link">
-          <Link style={color} to="/">
-            Home
-          </Link>
-        </div>
+    <div className="header">
+      <h1>About</h1>
+      <div className="breadcrumb">
+        <Link to="/"> Home </Link> |<Link to="/about"> About </Link> |
+        <Link to="/bookcase" className="bookLink">
+          {" "}
+          Bookcase ({props.bookLength})
+        </Link>
       </div>
+      <div className="page">Welcome to the Bookcase Application.</div>
     </div>
   );
 };
 
-export default AboutUsPage;
+export default About;
