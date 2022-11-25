@@ -6,7 +6,7 @@ const About = (props) => {
     <div className="header">
       <h1>About</h1>
       <div className="breadcrumb">
-        <Link to="/"> Home </Link> |<Link to="/about"> About </Link> |
+        <Link to="/"> Home </Link> | <Link to="/about"> About </Link> |
         <Link to="/bookcase" className="bookLink">
           {" "}
           Bookcase ({props.bookLength})
