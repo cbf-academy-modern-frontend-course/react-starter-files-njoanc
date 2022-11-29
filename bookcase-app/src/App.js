@@ -71,7 +71,7 @@ const App = () => {
     }
     let startIndex = maxResults * (page - 1);
     let urlstring = encodeURIComponent(value.trim());
-    let fetchUrl = `https://www.googleapis.com/books/v1/volumes?q=${urlstring}&filter=paid-ebooks&print-type=books&projection=lite&orderBy=newest&maxResults=${maxResults}&startIndex=${startIndex}`;
+    let fetchUrl = `https://www.googleapis.com/books/v1/volumes?q=${keyword}&filter=paid-ebooks&print-type=books&projection=lite&orderBy=newest&maxResults=${maxResults}&startIndex=${startIndex}`;
     console.log(fetchUrl);
 
     const results = await fetch(fetchUrl).then((res) => res.json());
